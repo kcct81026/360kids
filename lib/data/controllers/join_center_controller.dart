@@ -15,8 +15,10 @@ class JoinCenterController extends GetxController{
   final TextEditingController addressController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController postalCodeController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   bool _isLoading = false;
   bool _hasError = false;
+  bool _isAgeSelected = true;
   List<CheckboxModel> _ageList = [];
   List<CheckboxModel> _categoryList = [];
 
@@ -24,13 +26,15 @@ class JoinCenterController extends GetxController{
   List<CheckboxModel> get categoryList => _categoryList;
   bool get isLoading => _isLoading;
   bool get hasError => _hasError;
+  bool get isAgeSelected => _isAgeSelected;
   String getName() => nameController.text;
   String getAddress() => addressController.text;
   String getPhone() => phoneController.text;
   String getPostalCode() => postalCodeController.text;
+  String getEmail() => emailController.text;
 
 
-  bool isTextEmpty(text) => text.isEmpty;
+  bool isTextEmpty(text) => text.trim().isEmpty;
   bool isValidNumber(text) => ValidChecker.isValidNumber(text);
   bool isValidEmail(text) => ValidChecker.isValidEmail(text);
 
@@ -72,14 +76,58 @@ class JoinCenterController extends GetxController{
       CheckboxModel(id: 11, label: "Ballet"),
       CheckboxModel(id: 12, label: "Musical Instrument"),
     ];
+
     _isLoading = false;
-    print("---------------------- loading $_isLoading");
     update();
   }
 
-  void updateErrorValue(bool newValue){
-    _hasError = newValue;
+  bool isAnyAgeListCheckboxSelected() {
+    _isAgeSelected = _ageList.any((checkbox) => checkbox.isSelected);
     update();
+    print("=----------------------- $isAgeSelected");
+    return _isAgeSelected;
+  }
+
+  bool isAnyCategoryListCheckboxSelected() {
+    return _ageList.any((checkbox) => checkbox.isSelected);
+  }
+
+  void updateErrorValue(bool newValue){
+    print("updated updated update $newValue");
+    _hasError  =  newValue;
+    update();
+  }
+
+  void updateAgeCheckbox(int id, bool isSelected) {
+    for (int i = 0; i < _ageList.length; i++) {
+      if (_ageList[i].id == id) {
+        _ageList[i].isSelected = isSelected;
+        isAnyAgeListCheckboxSelected();
+        update(); // Update the state when a matching element is found
+        break; // Exit the loop once the element is updated
+      }
+    }
+  /*  _ageList.forEach((checkbox) {
+      if (checkbox.id == id) {
+        checkbox.isSelected = isSelected;
+        print(checkbox.label);
+        print(checkbox.isSelected);
+        update();
+        break;// Update the state when a matching element is found
+      }
+    });*/
+
+   // update();
+  }
+
+  void updateCategoryCheckbox(int id, bool isSelected) {
+    CheckboxModel? checkbox = _categoryList.firstWhere(
+          (element) => element.id == id,
+    );
+
+    if (checkbox != null) {
+      checkbox.isSelected = isSelected;
+    }
   }
 
 }

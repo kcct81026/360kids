@@ -16,8 +16,8 @@ class TextFieldJoinCenterList extends StatelessWidget {
 
 
     return  Container(
-      margin: EdgeInsets.symmetric(
-        vertical: Dimensions.height20
+      margin: EdgeInsets.only(
+        top: Dimensions.height20
       ),
      // width: double.maxFinite,
       //height: Dimensions.height250,
@@ -54,7 +54,12 @@ class TextFieldJoinCenterList extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
+          CustomEditTextForCenter(
+            controller: controller.emailController ,
+            hint: "Email Address",
+            inputType: TextInputType.emailAddress,
+          ),
         ],
       ),
     );

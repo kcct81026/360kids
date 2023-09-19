@@ -81,21 +81,24 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
                   // Perform validation based on inputType
                   if (controller.isTextEmpty(value)) {
                     _errorText = "* Please enter ${widget.hint}";
-                    controller.updateErrorValue(true);
+                    controller.updateErrorValue(false);
+
                   } else if (widget.inputType == TextInputType.number &&
                       !controller.isValidNumber(value)) {
                     _errorText = '* Please enter a valid number';
-                    controller.updateErrorValue(true);
+                    controller.updateErrorValue(false);
+
                   } else if (widget.inputType == TextInputType.emailAddress &&
                       !controller.isValidEmail(value)) {
-                    _errorText = '* Please enter a valid email address';
-                    controller.updateErrorValue(true);
-                  } else {
                     controller.updateErrorValue(false);
-                    print(value);
+                    _errorText = '* Please enter a valid email address';
+                  } else {
                     // widget.controller.text = value; // No need to set text again
                     print(widget.controller.text);
+                    controller.updateErrorValue(true);
+
                   }
+
                 });
               },
             ),
@@ -103,11 +106,11 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
         ),
         Container(
           margin: EdgeInsets.only(
-            top: !_errorText.isEmpty ? Dimensions.height10 : 0,
-            bottom: Dimensions.height10 / 2
+              top: controller.hasError  ? Dimensions.height10 : 0,
+              bottom: Dimensions.height10 / 2
           ),
           child: BigText(
-            text: _errorText.toLowerCase(),
+            text: controller.hasError ? "* Please enter ${widget.hint.toLowerCase()}" : "",
             color: Colors.red,
             maxLines: 2,
             size: Dimensions.font12,

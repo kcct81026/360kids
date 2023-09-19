@@ -38,6 +38,7 @@ dependencies:
   get:
   dots_indicator:
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

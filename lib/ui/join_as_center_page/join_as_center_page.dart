@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:three_sixty_kids/data/controllers/join_center_controller.dart';
+import 'package:three_sixty_kids/ui/join_as_center_page/widgets/join_center_submit.dart';
 import 'package:three_sixty_kids/utils/colors.dart';
 import 'package:three_sixty_kids/utils/dimensions.dart';
 import 'package:three_sixty_kids/widgets/custom_text_button.dart';
 import 'package:three_sixty_kids/widgets/join_center_app_bar.dart';
 
+import 'widgets/age_rates_checkbox_list.dart';
 import 'widgets/text_field_join_center_list.dart';
 import 'widgets/title_join_center_widget.dart';
 
@@ -27,34 +29,20 @@ class JoinAsCenterPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                TitleJoinCenter(controller: controller),
+                TitleJoinCenter(),
                 TextFieldJoinCenterList(),
 
               ],
 
             ),
           ),
+          AgeRatesView(),
+          JoinCenterSubmitView(),
+
+
         ],
       ),
-      floatingActionButton: Container(
-        height: Dimensions.height150 / 3,
-        width: Dimensions.screenWidth - 30,
-        //padding: EdgeInsets.all(Dimensions.width10),
-        color: Colors.transparent,
-        child: GestureDetector(
-          onTap: (){
-            if(controller.hasError){
-              print("error------------");
-            }
-            else{
-              print("no error --------------");
-            }
-          },
-          child: CustomTextButton(
-            text: "Submit",
-          ),
-        ),
-      ),
+
     );
   }
 }
