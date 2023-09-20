@@ -20,6 +20,7 @@ class JoinCenterSubmitView extends StatelessWidget {
           child:  GestureDetector(
             onTap: (){
               //print(controller.hasError);
+
               if(controller.getName().trim().isEmpty
                   || controller.getPostalCode().trim().isEmpty
                   || controller.getPhone().trim().isEmpty
@@ -29,6 +30,7 @@ class JoinCenterSubmitView extends StatelessWidget {
                   || !controller.isValidNumber(controller.getPhone())
                   || !controller.isValidNumber(controller.getPostalCode())
                   || !controller.isAnyAgeListCheckboxSelected()
+                  || !controller.isAnyCategoryListCheckboxSelected()
 
 
               ){

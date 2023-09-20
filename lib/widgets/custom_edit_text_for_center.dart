@@ -6,7 +6,7 @@ import 'package:three_sixty_kids/utils/dimensions.dart';
 import 'package:three_sixty_kids/widgets/big_text.dart';
 
 class CustomEditTextForCenter extends StatefulWidget {
-  final TextEditingController controller;
+  final TextEditingController editingController;
   final String hint;
   TextInputType inputType;
   Color color;
@@ -14,7 +14,7 @@ class CustomEditTextForCenter extends StatefulWidget {
   double size;
 
   CustomEditTextForCenter({
-    required this.controller,
+    required this.editingController,
     required this.hint,
     this.height = 50,
     this.inputType = TextInputType.text,
@@ -28,13 +28,12 @@ class CustomEditTextForCenter extends StatefulWidget {
 
 class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
   String _errorText = "";
-  JoinCenterController controller = Get.find<JoinCenterController>();
 
   @override
   void initState() {
     super.initState();
     // Initialize the controller with the provided text
-    widget.controller.text = widget.controller.text;
+    widget.editingController.text = widget.editingController.text;
   }
 
   @override
@@ -46,79 +45,111 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
     if (widget.size == 14) {
       widget.size = Dimensions.font14;
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          height: widget.height,
-          padding: EdgeInsets.symmetric(horizontal: Dimensions.width15),
-          decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.circular(Dimensions.radius10 / 2),
-            border: Border.all(color: Colors.grey),
-          ),
-          child: Center(
-            child: TextField(
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: Dimensions.font14,
-                fontWeight: FontWeight.w500,
+
+    return GetBuilder<JoinCenterController>(
+      builder: (controller){
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: widget.height,
+              padding: EdgeInsets.symmetric(horizontal: Dimensions.width15),
+              decoration: BoxDecoration(
+                color: widget.color,
+                borderRadius: BorderRadius.circular(Dimensions.radius10 / 2),
+                border: Border.all(color: Colors.grey),
               ),
-              keyboardType: widget.inputType,
-              controller: widget.controller,
-              onChanged: (newValue) => widget.controller.text = newValue,
-              decoration: InputDecoration(
-                hintText: widget.hint,
-                hintStyle: TextStyle(
-                  color: AppColors.textColor.withOpacity(0.4),
+              child: Center(
+                child: TextField(
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: Dimensions.font14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  keyboardType: widget.inputType,
+                  controller: widget.editingController,
+                  onChanged: (newValue) => widget.editingController.text = newValue,
+                  decoration: InputDecoration(
+                    hintText: widget.hint,
+                    hintStyle: TextStyle(
+                      color: AppColors.textColor.withOpacity(0.4),
+                    ),
+                    border: InputBorder.none,
+                  ),
+                  onSubmitted: (value) {
+                    setState(() {
+                      // Clear any previous error message
+                      _errorText = "";
+
+                      if (controller.isTextEmpty(value)) {
+                        _errorText = "* Please enter ${widget.hint.toLowerCase()}";
+
+                      } else if (widget.inputType == TextInputType.number &&
+                          !controller.isValidNumber(value)) {
+                        _errorText = '* Please enter a valid number';
+
+                      } else if (widget.inputType == TextInputType.emailAddress &&
+                          !controller.isValidEmail(value)) {
+                        _errorText = '* Please enter a valid email address';
+                      }
+
+                      print("---------------------------------- error ${_errorText}");
+
+                    });
+                  },
                 ),
-                border: InputBorder.none,
               ),
-              onSubmitted: (value) {
-                setState(() {
-                  // Clear any previous error message
-                  _errorText = "";
-                  // Perform validation based on inputType
-                  if (controller.isTextEmpty(value)) {
-                    _errorText = "* Please enter ${widget.hint}";
-                    controller.updateErrorValue(false);
-
-                  } else if (widget.inputType == TextInputType.number &&
-                      !controller.isValidNumber(value)) {
-                    _errorText = '* Please enter a valid number';
-                    controller.updateErrorValue(false);
-
-                  } else if (widget.inputType == TextInputType.emailAddress &&
-                      !controller.isValidEmail(value)) {
-                    controller.updateErrorValue(false);
-                    _errorText = '* Please enter a valid email address';
-                  } else {
-                    // widget.controller.text = value; // No need to set text again
-                    print(widget.controller.text);
-                    controller.updateErrorValue(true);
-
-                  }
-
-                });
-              },
             ),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.only(
-              top: controller.hasError  ? Dimensions.height10 : 0,
-              bottom: Dimensions.height10 / 2
-          ),
-          child: BigText(
-            text: controller.hasError ? "* Please enter ${widget.hint.toLowerCase()}" : "",
-            color: Colors.red,
-            maxLines: 2,
-            size: Dimensions.font12,
-          ),
-        ),
-      ],
-    );
-  }
+            Container(
+              margin: EdgeInsets.only(
+                top: (!controller.hasError && (widget.editingController.text).isEmpty)
+                    ?  Dimensions.height10 :
+                ( (controller.getErrorText(widget.editingController.text, widget.inputType,widget.hint).isEmpty)
+                    ? Dimensions.height10
+                    : Dimensions.height10
+                ),
+                bottom: Dimensions.height10 / 2,
+              ),
+              child: BigText(
+                text: (!controller.hasError && (widget.editingController.text).isEmpty)
+                    ? _errorText :
+                ((controller.getErrorText(widget.editingController.text, widget.inputType,widget.hint).isEmpty)
+                    ? _errorText//controller.getErrorText(widget.editingController.text, widget.inputType)
+                    : controller.getErrorText(widget.editingController.text, widget.inputType,widget.hint)
+                ),
+                /*text: (controller.hasError && controller.getErrorText(widget.editingController.text, widget.inputType).isEmpty)
+                    ? "${controller.getErrorText(widget.editingController.text, widget.inputType)} ${widget.hint.toLowerCase()}"
+                    : controller.getErrorText(widget.editingController.text, widget.inputType),*/
+                color: Colors.red,
+                maxLines: 2,
+                size: Dimensions.font12,
+              ),
+            ),
 
+
+            /*Container(
+              margin: EdgeInsets.only(
+                  top: (controller.hasError && _errorText.isEmpty)
+                      ? Dimensions.height10
+                      : (( !controller.hasError && _errorText.isEmpty) ? 0 : Dimensions.height10  ) ,
+                  bottom: Dimensions.height10 / 2
+              ),
+              child: BigText(
+                text: (controller.hasError && _errorText.isEmpty)
+                    ? "* Please enter ${widget.hint.toLowerCase()}"
+                    : ((!controller.hasError &&  _errorText.isEmpty) ? "" : _errorText )  ,
+                color: Colors.red,
+                maxLines: 2,
+                size: Dimensions.font12,
+              ),
+            ),*/
+
+          ],
+        );
+      },
+    );
+
+
+  }
 
 }

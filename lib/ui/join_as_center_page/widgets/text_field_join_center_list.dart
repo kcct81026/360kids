@@ -14,6 +14,7 @@ class TextFieldJoinCenterList extends StatelessWidget {
 
     JoinCenterController controller = Get.find<JoinCenterController>();
 
+    print("text selected ${controller.isAgeSelected}");
 
     return  Container(
       margin: EdgeInsets.only(
@@ -26,12 +27,12 @@ class TextFieldJoinCenterList extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CustomEditTextForCenter(
-            controller: controller.nameController ,
+            editingController: controller.nameController ,
             hint: "Center Name",
           ),
 
           CustomEditTextForCenter(
-            controller: controller.addressController ,
+            editingController: controller.addressController ,
             hint: "Center Address",
           ),
 
@@ -39,7 +40,7 @@ class TextFieldJoinCenterList extends StatelessWidget {
             children: [
               Expanded(
                 child: CustomEditTextForCenter(
-                  controller: controller.phoneController ,
+                  editingController: controller.phoneController ,
                   hint: "Center Phone",
                   inputType: TextInputType.number,
                 ),
@@ -48,7 +49,7 @@ class TextFieldJoinCenterList extends StatelessWidget {
 
               Expanded(
                 child: CustomEditTextForCenter(
-                  controller: controller.postalCodeController ,
+                  editingController: controller.postalCodeController ,
                   hint: "Center Postal Code",
                   inputType: TextInputType.number,
                 ),
@@ -56,7 +57,7 @@ class TextFieldJoinCenterList extends StatelessWidget {
             ],
           ),
           CustomEditTextForCenter(
-            controller: controller.emailController ,
+            editingController: controller.emailController ,
             hint: "Email Address",
             inputType: TextInputType.emailAddress,
           ),

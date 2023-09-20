@@ -19,6 +19,7 @@ class JoinCenterController extends GetxController{
   bool _isLoading = false;
   bool _hasError = false;
   bool _isAgeSelected = true;
+  bool _isCategorySelected = true;
   List<CheckboxModel> _ageList = [];
   List<CheckboxModel> _categoryList = [];
 
@@ -27,6 +28,7 @@ class JoinCenterController extends GetxController{
   bool get isLoading => _isLoading;
   bool get hasError => _hasError;
   bool get isAgeSelected => _isAgeSelected;
+  bool get isCategorySelected => _isCategorySelected;
   String getName() => nameController.text;
   String getAddress() => addressController.text;
   String getPhone() => phoneController.text;
@@ -43,6 +45,9 @@ class JoinCenterController extends GetxController{
     super.onInit();
     //fetchAgeRatesCheckboxesFromServer();
   }
+
+
+
 
 
 
@@ -84,13 +89,15 @@ class JoinCenterController extends GetxController{
   bool isAnyAgeListCheckboxSelected() {
     _isAgeSelected = _ageList.any((checkbox) => checkbox.isSelected);
     update();
-    print("=----------------------- $isAgeSelected");
     return _isAgeSelected;
   }
 
   bool isAnyCategoryListCheckboxSelected() {
-    return _ageList.any((checkbox) => checkbox.isSelected);
+    _isCategorySelected = _categoryList.any((checkbox) => checkbox.isSelected);
+    update();
+    return _isCategorySelected;
   }
+
 
   void updateErrorValue(bool newValue){
     print("updated updated update $newValue");
@@ -107,27 +114,33 @@ class JoinCenterController extends GetxController{
         break; // Exit the loop once the element is updated
       }
     }
-  /*  _ageList.forEach((checkbox) {
-      if (checkbox.id == id) {
-        checkbox.isSelected = isSelected;
-        print(checkbox.label);
-        print(checkbox.isSelected);
-        update();
-        break;// Update the state when a matching element is found
-      }
-    });*/
-
-   // update();
   }
-
   void updateCategoryCheckbox(int id, bool isSelected) {
-    CheckboxModel? checkbox = _categoryList.firstWhere(
-          (element) => element.id == id,
-    );
-
-    if (checkbox != null) {
-      checkbox.isSelected = isSelected;
+    for (int i = 0; i < _categoryList.length; i++) {
+      if (_categoryList[i].id == id) {
+        _categoryList[i].isSelected = isSelected;
+        isAnyAgeListCheckboxSelected();
+        update(); // Update the state when a matching element is found
+        break; // Exit the loop once the element is updated
+      }
     }
   }
+
+  String getErrorText(String text, TextInputType type, String hint){
+    if(type == TextInputType.text){
+      return text.trim().isEmpty ? "* please enter ${hint.toLowerCase()}" : "";
+    }
+    else if(type == TextInputType.number){
+      return text.trim().isEmpty ? "* please enter ${hint.toLowerCase()}" :
+       (!ValidChecker.isValidNumber(text.trim()) ? "* please enter valid number" : "");
+    }
+    else if(type == TextInputType.emailAddress){
+      return text.trim().isEmpty ? "* please enter ${hint.toLowerCase()}" :
+      (!ValidChecker.isValidEmail(text.trim()) ? "* please enter valid email" : "");
+    }
+    return "";
+  }
+
+
 
 }
