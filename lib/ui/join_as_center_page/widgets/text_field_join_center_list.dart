@@ -50,7 +50,7 @@ class TextFieldJoinCenterList extends StatelessWidget {
               Expanded(
                 child: CustomEditTextForCenter(
                   editingController: controller.postalCodeController ,
-                  hint: "Center Postal Code",
+                  hint: "Postal Code",
                   inputType: TextInputType.number,
                 ),
               ),

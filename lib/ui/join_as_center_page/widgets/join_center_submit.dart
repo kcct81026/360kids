@@ -19,18 +19,19 @@ class JoinCenterSubmitView extends StatelessWidget {
           ),
           child:  GestureDetector(
             onTap: (){
-              //print(controller.hasError);
+              if( (!controller.isAnyCategoryListCheckboxSelected() && !controller.isAnyAgeListCheckboxSelected())
 
-              if(controller.getName().trim().isEmpty
-                  || controller.getPostalCode().trim().isEmpty
-                  || controller.getPhone().trim().isEmpty
+                  || controller.getName().trim().isEmpty
+                  || controller.getUserName().trim().isEmpty
+                  || (controller.getPostalCode().trim().isEmpty &&  !controller.isValidNumber(controller.getPostalCode()))
+                  || (controller.getPostalCode().trim().isEmpty &&  !controller.isValidNumber(controller.getPostalCode()))
+                  || (controller.getUserPhone().trim().isEmpty && !controller.isValidNumber(controller.getUserPhone()))
                   || controller.getAddress().trim().isEmpty
-                  || controller.getEmail().trim().isEmpty
-                  || !controller.isValidEmail(controller.getEmail())
-                  || !controller.isValidNumber(controller.getPhone())
-                  || !controller.isValidNumber(controller.getPostalCode())
-                  || !controller.isAnyAgeListCheckboxSelected()
-                  || !controller.isAnyCategoryListCheckboxSelected()
+                  || (controller.getEmail().trim().isEmpty && !controller.isValidEmail(controller.getEmail()))
+                  || (controller.getUserEmail().trim().isEmpty && !controller.isValidEmail(controller.getUserEmail()))
+
+
+
 
 
               ){

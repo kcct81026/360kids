@@ -36,6 +36,7 @@ class AgeRatesView extends StatelessWidget {
                 children: [
                   CustomTextIconButton(
                     text: "Please select age rates for your center",
+                    fontSize: Dimensions.font12,
 
                   ),
                   SizedBox(

@@ -8,3 +8,5 @@ const String trailClasses = "Trial Classes";
 const String bookTrail = "Book Trial Class";
 const String inquiry_class = "Inquiry For Trial Class";
 const String signup_bit = "Sign up before launch to bid amount minimum \$20 ";
+const String fill_user_info = "Please fill in your personal information";
+const String user_alert_info = "This information will not be shared publicly!";

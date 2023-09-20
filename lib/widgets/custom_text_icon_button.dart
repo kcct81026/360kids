@@ -48,12 +48,16 @@ class CustomTextIconButton extends StatelessWidget {
               size: Dimensions.iconSize16,
               color: AppColors.redColor ,
             ),
-            SizedBox(width: Dimensions.width10 ,),
-            BigText(
-              text: text,
-              color: textColor,
-              fontWeight: fontWeight,
-              size: fontSize == 0? Dimensions.font14 : fontSize,
+            SizedBox(width: Dimensions.width10 / 2,),
+
+            Expanded(
+              child: BigText(
+                text: text,
+                color: textColor,
+                fontWeight: fontWeight,
+                maxLines: 1,
+                size: fontSize == 0? Dimensions.font14 : fontSize,
+              ),
             )
           ],
         ),

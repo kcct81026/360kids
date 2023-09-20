@@ -54,7 +54,6 @@ class ArticleInfoWidget extends StatelessWidget {
               width: double.maxFinite,
             ),
           ),
-          SizedBox(height: Dimensions.height10,),
           IntrinsicWidth(
             child:  CustomTextButton(
               height: Dimensions.height40,

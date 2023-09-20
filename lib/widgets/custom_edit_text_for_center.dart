@@ -93,7 +93,6 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
                         _errorText = '* Please enter a valid email address';
                       }
 
-                      print("---------------------------------- error ${_errorText}");
 
                     });
                   },
@@ -102,13 +101,9 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
             ),
             Container(
               margin: EdgeInsets.only(
-                top: (!controller.hasError && (widget.editingController.text).isEmpty)
-                    ?  Dimensions.height10 :
-                ( (controller.getErrorText(widget.editingController.text, widget.inputType,widget.hint).isEmpty)
-                    ? Dimensions.height10
-                    : Dimensions.height10
-                ),
-                bottom: Dimensions.height10 / 2,
+                top: Dimensions.height10/2,
+                left:Dimensions.height10/2 ,
+                bottom: Dimensions.height10,
               ),
               child: BigText(
                 text: (!controller.hasError && (widget.editingController.text).isEmpty)
@@ -117,32 +112,12 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
                     ? _errorText//controller.getErrorText(widget.editingController.text, widget.inputType)
                     : controller.getErrorText(widget.editingController.text, widget.inputType,widget.hint)
                 ),
-                /*text: (controller.hasError && controller.getErrorText(widget.editingController.text, widget.inputType).isEmpty)
-                    ? "${controller.getErrorText(widget.editingController.text, widget.inputType)} ${widget.hint.toLowerCase()}"
-                    : controller.getErrorText(widget.editingController.text, widget.inputType),*/
                 color: Colors.red,
                 maxLines: 2,
                 size: Dimensions.font12,
               ),
             ),
 
-
-            /*Container(
-              margin: EdgeInsets.only(
-                  top: (controller.hasError && _errorText.isEmpty)
-                      ? Dimensions.height10
-                      : (( !controller.hasError && _errorText.isEmpty) ? 0 : Dimensions.height10  ) ,
-                  bottom: Dimensions.height10 / 2
-              ),
-              child: BigText(
-                text: (controller.hasError && _errorText.isEmpty)
-                    ? "* Please enter ${widget.hint.toLowerCase()}"
-                    : ((!controller.hasError &&  _errorText.isEmpty) ? "" : _errorText )  ,
-                color: Colors.red,
-                maxLines: 2,
-                size: Dimensions.font12,
-              ),
-            ),*/
 
           ],
         );

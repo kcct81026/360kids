@@ -16,6 +16,9 @@ class JoinCenterController extends GetxController{
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController postalCodeController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController userPhoneController = TextEditingController();
+  final TextEditingController userEmailController = TextEditingController();
   bool _isLoading = false;
   bool _hasError = false;
   bool _isAgeSelected = true;
@@ -34,6 +37,9 @@ class JoinCenterController extends GetxController{
   String getPhone() => phoneController.text;
   String getPostalCode() => postalCodeController.text;
   String getEmail() => emailController.text;
+  String getUserEmail() => userEmailController.text;
+  String getUserPhone() => userPhoneController.text;
+  String getUserName() => userNameController.text;
 
 
   bool isTextEmpty(text) => text.trim().isEmpty;
@@ -119,7 +125,7 @@ class JoinCenterController extends GetxController{
     for (int i = 0; i < _categoryList.length; i++) {
       if (_categoryList[i].id == id) {
         _categoryList[i].isSelected = isSelected;
-        isAnyAgeListCheckboxSelected();
+        isAnyCategoryListCheckboxSelected();
         update(); // Update the state when a matching element is found
         break; // Exit the loop once the element is updated
       }
@@ -128,15 +134,15 @@ class JoinCenterController extends GetxController{
 
   String getErrorText(String text, TextInputType type, String hint){
     if(type == TextInputType.text){
-      return text.trim().isEmpty ? "* please enter ${hint.toLowerCase()}" : "";
+      return text.trim().isEmpty ? "* Please enter ${hint.toLowerCase()}" : "";
     }
     else if(type == TextInputType.number){
-      return text.trim().isEmpty ? "* please enter ${hint.toLowerCase()}" :
-       (!ValidChecker.isValidNumber(text.trim()) ? "* please enter valid number" : "");
+      return text.trim().isEmpty ? "* Please enter ${hint.toLowerCase()}" :
+       (!ValidChecker.isValidNumber(text.trim()) ? "* Please enter valid number" : "");
     }
     else if(type == TextInputType.emailAddress){
-      return text.trim().isEmpty ? "* please enter ${hint.toLowerCase()}" :
-      (!ValidChecker.isValidEmail(text.trim()) ? "* please enter valid email" : "");
+      return text.trim().isEmpty ? "* Please enter ${hint.toLowerCase()}" :
+      (!ValidChecker.isValidEmail(text.trim()) ? "* Please enter valid email" : "");
     }
     return "";
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:three_sixty_kids/data/controllers/join_center_controller.dart';
 import 'package:three_sixty_kids/ui/join_as_center_page/widgets/category_checkbox_list.dart';
+import 'package:three_sixty_kids/ui/join_as_center_page/widgets/fill_center_user_info.dart';
 import 'package:three_sixty_kids/ui/join_as_center_page/widgets/join_center_submit.dart';
 import 'package:three_sixty_kids/utils/colors.dart';
 import 'package:three_sixty_kids/utils/dimensions.dart';
@@ -39,6 +40,15 @@ class JoinAsCenterPage extends StatelessWidget {
           ),
           AgeRatesView(),
           JoinCenterCategoryListView(),
+          Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: Dimensions.width10,
+              vertical: Dimensions.width10
+            ),
+            height: Dimensions.height10 / 10,
+            color: Colors.grey,
+          ),
+          FillCenterUserInfoView(),
           JoinCenterSubmitView(),
 
 
