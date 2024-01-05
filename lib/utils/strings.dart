@@ -10,3 +10,5 @@ const String inquiry_class = "Inquiry For Trial Class";
 const String signup_bit = "Sign up before launch to bid amount minimum \$20 ";
 const String fill_user_info = "Please fill in your personal information";
 const String user_alert_info = "This information will not be shared publicly!";
+const String blog_sub_title = "Develop a holistic education plan for your child";
+const String blog_sub_title2 = "We believe in the power of knowledge and strive to provide you with valuable insights a wide range of topics.";

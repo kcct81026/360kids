@@ -38,7 +38,7 @@ class OptionsView extends StatelessWidget {
                   : Container(
                       height: Dimensions.height100/2,
                       //width: Dimensions.width30 * 5, // Customize the width as needed
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      padding: EdgeInsets.symmetric(horizontal: Dimensions.width15),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius:  BorderRadius.circular(Dimensions.radius10 / 2),
@@ -64,7 +64,7 @@ class OptionsView extends StatelessWidget {
                                 child: Text(
                                   option,
                                   style: TextStyle(
-                                    fontSize: Dimensions.font14,
+                                    fontSize: Dimensions.font12,
                                     fontFamily: "Poppins",
                                     color: AppColors.textColor,
                                     fontWeight: FontWeight.w400,
@@ -74,7 +74,8 @@ class OptionsView extends StatelessWidget {
                               );
                             },
                           ).toList(),
-                          dropdownColor: Colors.white, // Set the background color
+                          dropdownColor: Colors.white,
+                          underline: Container(), // Remove the underline // Set the background color
                         ),
                       ],
                     ),

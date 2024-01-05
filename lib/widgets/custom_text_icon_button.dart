@@ -56,7 +56,7 @@ class CustomTextIconButton extends StatelessWidget {
                 color: textColor,
                 fontWeight: fontWeight,
                 maxLines: 1,
-                size: fontSize == 0? Dimensions.font14 : fontSize,
+                size: fontSize == 0? Dimensions.font12 : fontSize,
               ),
             )
           ],

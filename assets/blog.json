@@ -1,0 +1,39 @@
+{
+  "articles": [
+    {
+      "article_category": "Cleaning Yourself",
+      "article_name": "Enchen Shaver Victor",
+      "article_description": "The Best Electric RazorOur pick. Braun Series 7 7071cc. The best electric razor for most faces. ...Upgrade pick. Braun Series 9 9370cc. Superior pe...",
+      "date_time": "December 25 2023",
+      "article_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7c749d6fba9654f7f5afd438e18d894b40b0195d/399906579_281408421541149_1234474567565818184_n.jpg"
+    },
+    {
+      "article_category": "Fun to Read",
+      "article_name": "A Guide to Finding Me Time for Busy Mothers",
+      "article_description": "Being a mom is like having a 24/7 job with no vacation days. But remember, even superheroes need to recharge their powers! It's time to break free ...",
+      "date_time": "December 27 2023",
+      "article_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBLZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fd691696e1d971d2df0dfffe1982ab174d444ca2/eob870xizor8zfnsuo10.jpg"
+    },
+    {
+      "article_category": "Fun to Read",
+      "article_name": "Family Movies on Netflix: A Delightful Collection for Quality Time",
+      "article_description": "Welcome to our curated selection of heartwarming family movies available for streaming on Netflix.\"Home\" (2015):After an alien race called the Boov...",
+      "date_time": "December 27 2023",
+      "article_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBLdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--89f3859f978d7a8e598aefde3fbb28183f9c71e6/j00kvjcuanpitrrptjgg.jpg"
+    },
+    {
+      "article_category": "Education",
+      "article_name": "DIY Projects for Busy Parents!",
+      "article_description": "Are you a busy parent looking to unleash your creativity and engage in fun activities with your children?Look no further! These projects can be acc...",
+      "date_time": "December 27 2023",
+      "article_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2a8b3543f2173d153ef73580502bb80e8120106b/es34vysorzs1mnfmbeoh.jpg"
+    },
+    {
+      "article_category": "Parenting Tips",
+      "article_name": "Bedtime Battles",
+      "article_description": "Parents, we salute you! You have successfully maneuvered through the chaos of dinner time, conquered mountains of laundry, and now, just when you t...",
+      "date_time": "December 27 2023",
+      "article_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBMUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--38468b25adcb502b7af1d2bbb5e8aa60b94b184c/jzjrhy5goksxup2u1uur.jpg"
+    }
+  ]
+}

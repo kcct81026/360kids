@@ -1,0 +1,23 @@
+{
+  "distance": 1,
+  "keyword": "528589",
+  "center_count": 2,
+  "center_list": [
+    {
+      "id": 12,
+      "center_name": "Johan Taekwondo (Tampines)",
+      "center_description": "\nImprovements\n• Add support for json schema in unit tests (#6532) @kobenguyent\n• Add support for system CA certificates (#6924) @notjaywu\n• Show a warning in the status bar when there are untracked data in the app (#6927) @gatzjames",
+      "calculate_kilometer": "0.0 km",
+      "slug": "johan-taekwondo-tampines",
+      "center_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--bd8a83f006b89b2c296ae7e04b27491f5cd2055f/maxresdefault.jpg"
+    },
+    {
+      "id": 13,
+      "center_name": "Kumon(Tampines st 83 (Tampines Central CC))",
+      "center_description": "\nFixes\n• Increased the size of the size of the environments modal and fixed an issue where opening other modals inside of it wouldn't work as expected. ",
+      "calculate_kilometer": "0.0 km",
+      "slug": "kumon-tampines-st-83-tampines-central-cc",
+      "center_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBKdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a6b0d9341805f3e44c053aa75ecd290e1928c5ca/4a6d06cf-4aeb-4cb6-8cb5-afa210c943a5.png"
+    }
+  ]
+}

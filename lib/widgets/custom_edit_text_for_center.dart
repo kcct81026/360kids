@@ -16,7 +16,7 @@ class CustomEditTextForCenter extends StatefulWidget {
   CustomEditTextForCenter({
     required this.editingController,
     required this.hint,
-    this.height = 50,
+    this.height = 40,
     this.inputType = TextInputType.text,
     this.color = Colors.transparent,
     this.size = 14,
@@ -38,12 +38,12 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.height == 50) {
-      widget.height = Dimensions.height100 / 2;
+    if (widget.height == 40) {
+      widget.height = Dimensions.height40;
     }
 
     if (widget.size == 14) {
-      widget.size = Dimensions.font14;
+      widget.size = Dimensions.font12;
     }
 
     return GetBuilder<JoinCenterController>(
@@ -63,7 +63,7 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
                 child: TextField(
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font12,
                     fontWeight: FontWeight.w500,
                   ),
                   keyboardType: widget.inputType,
@@ -114,7 +114,7 @@ class _CustomEditTextForCenterState extends State<CustomEditTextForCenter> {
                 ),
                 color: Colors.red,
                 maxLines: 2,
-                size: Dimensions.font12,
+                size: Dimensions.font11,
               ),
             ),
 

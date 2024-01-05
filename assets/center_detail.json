@@ -1,0 +1,49 @@
+{
+  "center_name": "CMA Mental Arithmetic Centre (West Coast)",
+  "center_operation": [
+    "Thu",
+    "Fri",
+    "Sat"
+  ],
+  "center_age_range": [
+    "12 months - 24 months",
+    "4 years - 6 years"
+  ],
+  "center_categories": [
+    "3G Abacus & Creative Maths",
+    "STEM"
+  ],
+  "center_description": "We target brain development for kids at the ideal time of their growth with programmes aimed at training both left and right hemispheres of the brain.\nOur programmes triggers the innate numeric interest in each child and improves affinity in learning mathematics.\nBe assured that your child will start off their learning phase in natural and optimal learning conditions and be equipped with the essence of time and stress management skills also.\nCMA helps build up self-confidence and courage in your child gradually while increasing their level of focus. This will in turn cause a positive chain reaction.",
+  "center_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--673400f62065a57feda336a992313b38dab72756/dqafzsrcj1dplx4dm0ye.png",
+  "class_list": [
+    {
+      "class_name": "Nursery 1(Phonics & Reading)",
+      "class_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBLUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6b07c247fd47aa931d7551c715f4d78ef92fa485/sw0cvtnwnrbkcthwbjkp.jpg",
+      "class_description": "Brand and History Yamaha founder \"Torakusu Yamaha\" Yamaha's history began when its founder, Torakusu Yamaha, repaired a broken reed organ in 1887. Shortly thereafter, he successfully completed the first reed organ.",
+      "class_age_range": [
+        "6 months - 12 months",
+        "-Above 7 years"
+      ],
+      "class_categories": [
+        "Coding & Programming",
+        "Cycling",
+        "Soft Skills",
+        "Speech & Drama"
+      ]
+    },
+    {
+      "class_name": "Yamaha (KAMPONG CHAI CHEE COMMUNITY CLUB)",
+      "class_image": "http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBJQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e42cc2da82083e3b83b49f6d7c43f6ebc312c341/ocadgswdf03fkkgo8tdr.jpg",
+      "class_description": "Brand and History Yamaha founder \"Torakusu Yamaha\" Yamaha's history began when its founder, Torakusu Yamaha, repaired a broken reed organ in 1887. Shortly thereafter, he successfully completed the first reed organ.",
+      "class_age_range": [
+        "6 months - 12 months",
+        "2 years - 4 years"
+      ],
+      "class_categories": [
+        "Ballet",
+        "Coding & Programming",
+        "Soccer"
+      ]
+    }
+  ]
+}

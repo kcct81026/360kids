@@ -25,7 +25,7 @@ class AgeRatesView extends StatelessWidget {
                 text: "Age rates",
                 fontWeight: FontWeight.bold,
                 color: AppColors.blueColor,
-                size: Dimensions.font20,
+                size: Dimensions.font18,
               ),
               SizedBox(
                 height: Dimensions.height20,
@@ -36,7 +36,7 @@ class AgeRatesView extends StatelessWidget {
                 children: [
                   CustomTextIconButton(
                     text: "Please select age rates for your center",
-                    fontSize: Dimensions.font12,
+                    fontSize: Dimensions.font11,
 
                   ),
                   SizedBox(
@@ -70,7 +70,7 @@ class AgeRatesView extends StatelessWidget {
                             SizedBox(width: Dimensions.width10/2), // Add the desired spacing
                             Expanded(
                               child: BigText(
-                                size: Dimensions.font14,
+                                size: Dimensions.font12,
                                 text: controller.ageList[index].label,
                                 maxLines: 2,
                               ),

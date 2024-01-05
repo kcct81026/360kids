@@ -40,7 +40,7 @@ class LongText extends StatelessWidget {
           text: text,
           color: textColor,
           fontWeight: fontWeight,
-          size: fontSize == 0? Dimensions.font14 : fontSize,
+          size: fontSize == 0? Dimensions.font12 : fontSize,
         ),
       ),
     );

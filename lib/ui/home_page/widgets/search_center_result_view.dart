@@ -34,7 +34,7 @@ class SearchCenterResultView extends StatelessWidget {
               BigText(
                 text: "${controller.centerList.length} center results",
                 fontWeight: FontWeight.bold,
-                size: Dimensions.font18,
+                size: Dimensions.font16,
               ),
               Container(
                 height: Dimensions.height20 * 2,
@@ -54,7 +54,7 @@ class SearchCenterResultView extends StatelessWidget {
                       BigText(
                         text: "Clear Search",
                         color: AppColors.mainColor,
-                        size: Dimensions.font12,
+                        size: Dimensions.font11,
                         fontWeight: FontWeight.w400,
                       ),
                       SizedBox(
@@ -78,13 +78,13 @@ class SearchCenterResultView extends StatelessWidget {
             height: Dimensions.height30,
           ),
           Container(
-            height: (Dimensions.height100+Dimensions.height30) * controller.centerList.length, // Adjust the height as needed
+            height: (Dimensions.height150) * controller.centerList.length, // Adjust the height as needed
             child: ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               itemCount: controller.centerList.length,
               itemBuilder: (context, index) {
                 // Replace this with your custom widget for each item
-                return CenterInfoView();
+                return CenterInfoView(centerItem: controller.centerList[index],);
               },
             ),
           )

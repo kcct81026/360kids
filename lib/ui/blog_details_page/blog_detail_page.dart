@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:three_sixty_kids/data/controllers/article_detail_controller.dart';
 import 'package:three_sixty_kids/data/controllers/center_detail_controller.dart';
+import 'package:three_sixty_kids/data/models/vos/blog_detail_model.dart';
 import 'package:three_sixty_kids/data/models/vos/center_detail_model.dart';
+import 'package:three_sixty_kids/ui/blog_details_page/widgets/blog_details_widget.dart';
 import 'package:three_sixty_kids/utils/colors.dart';
 import 'package:three_sixty_kids/utils/dimensions.dart';
 import 'package:three_sixty_kids/widgets/join_center_app_bar.dart';
 
-import 'widgets/center_deatail_category_view.dart';
-import 'widgets/center_details_widget.dart';
-import 'widgets/center_trail_class_view.dart';
-import 'widgets/message_for_center_view.dart';
 
-class CenterDetailPage extends StatelessWidget {
-  final CenterDetail centerDetail;
-  const CenterDetailPage({super.key, required this.centerDetail});
+class BlogDetailPage extends StatelessWidget {
+  final BlogDetails blogDetails;
+  const BlogDetailPage({super.key, required this.blogDetails});
 
   @override
   Widget build(BuildContext context) {
-    CenterDetailController controller = Get.find<CenterDetailController>();
+    ArticleDetailController controller = Get.find<ArticleDetailController>();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -27,17 +26,14 @@ class CenterDetailPage extends StatelessWidget {
           scrollDirection: Axis.vertical,
 
           children: [
-            MessageForCenterView(),
             Container(
               margin: EdgeInsets.all(Dimensions.width10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  centerImageAndNameView(centerDetail),
-                  infoTimeTableAndDateWidget(centerDetail),
-                  CenterDetailCategoryView(categories: centerDetail.centerCategories,),
-                  centerDetailsTextView(centerDetail),
-                  CenterTrailClassView(controller: controller,),
+                  blogImageAndNameView(blogDetails),
+
+                  blogDetailsTextView(blogDetails),
 
                 ],
               ),

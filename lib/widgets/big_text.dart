@@ -27,7 +27,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
         fontFamily: "Poppins",
         color: color,
-        fontSize: size == 0? Dimensions.font16 : size,
+        fontSize: size == 0? Dimensions.font14 : size,
         fontWeight: fontWeight
       ),
     );

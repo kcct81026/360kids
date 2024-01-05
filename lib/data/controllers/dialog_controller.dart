@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:three_sixty_kids/data/models/checkbox_model.dart';
+import 'package:three_sixty_kids/data/models/vos/checkbox_model.dart';
 import 'package:three_sixty_kids/data/repositories/center_detail_repo.dart';
 import 'package:three_sixty_kids/data/repositories/dialo_repo.dart';
 import 'package:three_sixty_kids/data/repositories/home_repo.dart';

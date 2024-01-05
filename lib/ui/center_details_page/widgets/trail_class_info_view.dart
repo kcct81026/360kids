@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:three_sixty_kids/data/controllers/class_detail_controller.dart';
+import 'package:three_sixty_kids/data/controllers/dialog_controller.dart';
+import 'package:three_sixty_kids/data/helper/string_format_helper.dart';
+import 'package:three_sixty_kids/data/models/vos/center_detail_model.dart';
 import 'package:three_sixty_kids/helper/route_helper.dart';
 import 'package:three_sixty_kids/utils/colors.dart';
 import 'package:three_sixty_kids/utils/dimensions.dart';
@@ -11,12 +15,13 @@ import 'package:three_sixty_kids/widgets/rounded_network_image.dart';
 import 'package:three_sixty_kids/widgets/underline_text.dart';
 
 class TrialClassInfoView extends StatelessWidget {
-  const TrialClassInfoView({super.key});
+  final ClassItem classItem;
+  const TrialClassInfoView({super.key, required this.classItem});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:  (Dimensions.height150 * 2 ) + Dimensions.height30,
+      height:  (Dimensions.height120 * 2 ) + Dimensions.height40,
       margin: EdgeInsets.only(bottom: Dimensions.height20),
       padding: EdgeInsets.all( Dimensions.width10),
       decoration: BoxDecoration(
@@ -52,35 +57,35 @@ class TrialClassInfoView extends StatelessWidget {
             ),
             child: RoundedNetworkImage(
               url:  "https://res.cloudinary.com/tech-myanmar/image/upload/v1692338611/articles/sw0cvtnwnrbkcthwbjkp.jpg",
-              height: Dimensions.height150,
+              height: Dimensions.height120,
               width: double.maxFinite,
             ),
           ),
           SizedBox(height: Dimensions.height10,),
 
           BigText(
-            text: "Junior Program Gallery",
+            text: classItem.className,
             color: AppColors.textColor,
             fontWeight: FontWeight.w500,
           ),
           BigText(
-            text:
-            "As human beings, the ability to learn and grow is encoded in our DNA. Our DNA provides the potential, but it is our experiences that release that potential, shape it, focus it and, hopefully, turn it into what the world recognises as success.",
+            text: classItem.classDescription,
             maxLines: 3,
             color: Colors.grey,
             fontWeight: FontWeight.w400,
-            size: Dimensions.font14,
+            size: Dimensions.font12,
           ),
           BigText(
-            text:
-            "Age 3-4 Junior Program",
+            text: getFormattedAgeRange(classItem.classAgeRange),
             maxLines: 1,
             color: AppColors.textColor,
             fontWeight: FontWeight.w400,
-            size: Dimensions.font14,
+            size: Dimensions.font12,
           ),
           GestureDetector(
             onTap: (){
+              Get.find<ClassDetailController>();
+              Get.find<DialogController>();
               Get.toNamed(RouteHelper.getClassDetailsPage(81026));
             },
             child: Row(
@@ -89,7 +94,7 @@ class TrialClassInfoView extends StatelessWidget {
                 UnderlineText(
                   text: bookTrail,
                   fontWeight: FontWeight.w400,
-                  size: Dimensions.font14,
+                  size: Dimensions.font12,
                 ),
                 SizedBox(
                   width: Dimensions.width10,

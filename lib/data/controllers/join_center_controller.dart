@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:three_sixty_kids/data/models/checkbox_model.dart';
+import 'package:three_sixty_kids/data/models/vos/checkbox_model.dart';
 import 'package:three_sixty_kids/data/repositories/home_repo.dart';
 import 'package:three_sixty_kids/data/repositories/join_center_repo.dart';
 import 'package:three_sixty_kids/utils/valid_checker.dart';

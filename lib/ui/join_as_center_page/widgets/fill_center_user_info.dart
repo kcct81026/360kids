@@ -23,7 +23,7 @@ class FillCenterUserInfoView extends StatelessWidget {
           BigText(
             text: fill_user_info,
             fontWeight: FontWeight.w500,
-            size: Dimensions.font16,
+            size: Dimensions.font14,
             maxLines: 3,
           ),
           SizedBox(height: Dimensions.height15,),
@@ -31,7 +31,7 @@ class FillCenterUserInfoView extends StatelessWidget {
           BigText(
             text: user_alert_info,
             color: Colors.grey,
-            size: Dimensions.font14,
+            size: Dimensions.font12,
             maxLines: 3,
           ),
           SizedBox(height: Dimensions.height15,),

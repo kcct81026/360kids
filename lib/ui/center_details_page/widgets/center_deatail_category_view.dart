@@ -5,20 +5,17 @@ import 'package:three_sixty_kids/utils/dimensions.dart';
 import 'package:three_sixty_kids/widgets/custom_chip_list.dart';
 
 class CenterDetailCategoryView extends StatelessWidget {
-  const CenterDetailCategoryView({super.key});
+  final List<String> categories;
+  const CenterDetailCategoryView({super.key, required this.categories});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CenterDetailController>(
-      builder: (controller) {
-        return Container(
-          margin: EdgeInsets.symmetric(
-            vertical: Dimensions.height10,
-            horizontal: Dimensions.height10
-          ),
-          child: CustomChipList(controller.cateogryList),
-        );
-      },
+    return Container(
+      margin: EdgeInsets.symmetric(
+          vertical: Dimensions.height10,
+          horizontal: Dimensions.height10
+      ),
+      child: CustomChipList(categories),
     );
   }
 }

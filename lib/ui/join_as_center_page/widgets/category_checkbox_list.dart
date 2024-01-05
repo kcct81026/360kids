@@ -25,7 +25,7 @@ class JoinCenterCategoryListView extends StatelessWidget {
                 text: "Center Categories",
                 fontWeight: FontWeight.bold,
                 color: AppColors.blueColor,
-                size: Dimensions.font20,
+                size: Dimensions.font18,
               ),
               SizedBox(
                 height: Dimensions.height20,
@@ -36,7 +36,7 @@ class JoinCenterCategoryListView extends StatelessWidget {
                 children: [
                   CustomTextIconButton(
                     text: "Please select some categories for center",
-                    fontSize: Dimensions.font12,
+                    fontSize: Dimensions.font11,
                   ),
                   SizedBox(
                     height: Dimensions.height20,
@@ -68,7 +68,7 @@ class JoinCenterCategoryListView extends StatelessWidget {
                             SizedBox(width: Dimensions.width10/2), // Add the desired spacing
                             Expanded(
                               child: BigText(
-                                size: Dimensions.font14,
+                                size: Dimensions.font12,
                                 text: controller.categoryList[index].label,
                                 maxLines: 2,
                               ),

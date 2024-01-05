@@ -31,8 +31,9 @@ class CenterTrailClassView extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          for(int i = 0; i < controller.cateogryList.length; i++)
-            TrialClassInfoView()
+          for(int i = 0; i < controller.centerDetail.classList.length; i++)
+            TrialClassInfoView(classItem: controller.centerDetail.classList[i])
+
         ],
       ),
     );

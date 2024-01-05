@@ -26,7 +26,7 @@ class UnderlineText extends StatelessWidget {
         decorationColor: color,
         fontFamily: "Poppins",
         color: color,
-        fontSize: size == 0? Dimensions.font12 : size,
+        fontSize: size == 0? Dimensions.font11 : size,
         fontWeight: fontWeight
       ),
     );

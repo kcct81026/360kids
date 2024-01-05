@@ -44,7 +44,7 @@ class MessageForCenterView extends StatelessWidget {
                       color: Colors.white.withOpacity(0.1),
                       text: "This message is for Center ONLY!",
                       textColor: Colors.white,
-                      fontSize: Dimensions.font14,
+                      fontSize: Dimensions.font12,
 
                     ),
                   ),
@@ -53,7 +53,7 @@ class MessageForCenterView extends StatelessWidget {
                     text: "Claim your center here",
                     color: Colors.white,
                     fontWeight: FontWeight.w400,
-                    size: Dimensions.font14,
+                    size: Dimensions.font12,
                   ),
                   SizedBox(width: Dimensions.width10,),
                   AppIcon(

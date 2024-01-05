@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:three_sixty_kids/data/models/vos/center_detail_model.dart';
 import 'package:three_sixty_kids/utils/colors.dart';
 import 'package:three_sixty_kids/utils/dimensions.dart';
 import 'package:three_sixty_kids/widgets/big_text.dart';
@@ -6,7 +7,10 @@ import 'package:three_sixty_kids/widgets/big_text.dart';
 import 'small_text.dart';
 
 class TimeTableWidget extends StatelessWidget {
-  const TimeTableWidget({super.key});
+
+  final List<String> centerOperation;
+
+  const TimeTableWidget({super.key, required this.centerOperation});
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +28,15 @@ class TimeTableWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BigText(
-                text: "Mon to Firday",
+                text: centerOperation.join(', '),
                 color: AppColors.textColor,
-                size: Dimensions.font12,
+                size: Dimensions.font11,
               ),
               SizedBox(height: Dimensions.height10/2,),
               SmallText(
                 text: "9.30AM - 3.30PM",
                 color: AppColors.textColor,
-                size: Dimensions.font12,
+                size: Dimensions.font11,
 
               )
             ],
@@ -45,7 +49,8 @@ class TimeTableWidget extends StatelessWidget {
 }
 
 class AgeWidget extends StatelessWidget {
-  const AgeWidget({super.key});
+  final String ageString;
+  const AgeWidget( {super.key, required this.ageString});
 
   @override
   Widget build(BuildContext context) {
@@ -62,9 +67,9 @@ class AgeWidget extends StatelessWidget {
           Column(
             children: [
               SmallText(
-                text: "3 to 5 years",
+                text: ageString,
                 color: AppColors.textColor,
-                size: Dimensions.font12,
+                size: Dimensions.font11,
 
               ),
 
@@ -97,7 +102,7 @@ class DistanceWidget extends StatelessWidget {
               SmallText(
                 text: "8 km away",
                 color: AppColors.textColor,
-                size: Dimensions.font12,
+                size: Dimensions.font11,
 
               ),
 

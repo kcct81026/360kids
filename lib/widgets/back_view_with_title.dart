@@ -31,7 +31,7 @@ class BackViewWithTitle extends StatelessWidget {
           BigText(
             text: text,
             color: AppColors.blueColor,
-            size: Dimensions.font14,
+            size: Dimensions.font12,
           )
         ],
       ),

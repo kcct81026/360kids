@@ -20,7 +20,7 @@ class CustomTextButton extends StatelessWidget {
     this.textColor = const Color(0xFFFFFFFF),
     this.padding = 10,
     this.fontWeight = FontWeight.w400,
-    this.height = 50,
+    this.height = 40,
     this.fontSize = 0,
     this.radius = 0,
     this.borderColor = Colors.transparent,
@@ -32,7 +32,7 @@ class CustomTextButton extends StatelessWidget {
       radius = Dimensions.radius8 ;
     }
     return Container(
-      height: height == 50 ? (Dimensions.height100 / 2) : height,
+      height: height == 40 ? Dimensions.height40 : height,
       padding: EdgeInsets.symmetric(
           horizontal: padding == 10 ? Dimensions.width10 : padding
       ),
@@ -51,7 +51,7 @@ class CustomTextButton extends StatelessWidget {
           text: text,
           color: textColor,
           fontWeight: fontWeight,
-          size: fontSize == 0? Dimensions.font16 : fontSize,
+          size: fontSize == 0? Dimensions.font14 : fontSize,
         ),
       ),
     );

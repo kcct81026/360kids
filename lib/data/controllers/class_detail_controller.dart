@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:three_sixty_kids/data/models/vos/class_detail_model.dart';
 import 'package:three_sixty_kids/data/repositories/center_detail_repo.dart';
 import 'package:three_sixty_kids/data/repositories/class_detail_repo.dart';
 import 'package:three_sixty_kids/data/repositories/home_repo.dart';
@@ -11,15 +12,18 @@ class ClassDetailController extends GetxController{
   List<String> _cateogryList = [];
   List<String> _imgList = [];
   bool _isLoading = false;
+  late ClassDetails _classDetails;
 
   List<String> get cateogryList => _cateogryList;
   List<String> get imgList => _imgList;
   bool get isLoading => _isLoading;
+  ClassDetails get classDetails => _classDetails;
 
 
   @override
   void onInit() {
     super.onInit();
+
   }
 
 
@@ -46,6 +50,15 @@ class ClassDetailController extends GetxController{
     update();
   }
 
+  Future<void> getClassDetail(int id) async {
+    _isLoading = true;
+    update();
+
+    _classDetails = await classDetailRepo.apiClient.getClassDetail();
+
+    _isLoading = false;
+    update();
+  }
   void setLoading(bool newValue) {
     _isLoading = newValue;
     update();

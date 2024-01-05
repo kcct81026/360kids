@@ -46,7 +46,7 @@ class TitleJoinCenter extends StatelessWidget {
                   BigText(
                     text: "How It Works",
                     color: AppColors.blueColor,
-                    size: Dimensions.font14,
+                    size: Dimensions.font12,
                     fontWeight: FontWeight.w500,
                   ),
                   SizedBox(width: Dimensions.width10,),

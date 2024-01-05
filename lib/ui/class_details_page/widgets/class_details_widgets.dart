@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:three_sixty_kids/data/controllers/class_detail_controller.dart';
+import 'package:three_sixty_kids/data/helper/string_format_helper.dart';
+import 'package:three_sixty_kids/data/models/vos/class_detail_model.dart';
 import 'package:three_sixty_kids/ui/class_details_page/widgets/image_with_indicator.dart';
 import 'package:three_sixty_kids/utils/colors.dart';
 import 'package:three_sixty_kids/utils/dimensions.dart';
@@ -10,7 +12,7 @@ import 'package:three_sixty_kids/widgets/long_text.dart';
 import 'package:three_sixty_kids/widgets/rounded_network_image.dart';
 import 'package:three_sixty_kids/widgets/time_table_map_date_widget.dart';
 
-Widget infoTimeTableAndDateWidget(){
+Widget infoTimeTableAndDateWidget(ClassDetails classDetails){
   return Container(
     margin: EdgeInsets.symmetric(
       horizontal: Dimensions.width10
@@ -18,9 +20,9 @@ Widget infoTimeTableAndDateWidget(){
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TimeTableWidget(),
+        TimeTableWidget(centerOperation: classDetails.classOperation,),
         SizedBox(height: Dimensions.height15,),
-        AgeWidget(),
+        AgeWidget(ageString: getFormattedAgeRange(classDetails.classAgeRange),),
         SizedBox(height: Dimensions.height15,),
         DistanceWidget(),
         SizedBox(height: Dimensions.height10,),
@@ -30,23 +32,24 @@ Widget infoTimeTableAndDateWidget(){
   );
 }
 
-Widget centerDetailsTextView(){
+Widget centerDetailsTextView(ClassDetails classDetails){
   return Container(
     margin: EdgeInsets.all(
       Dimensions.width10
     ),
     child: LongText(
-      text: "Are you a parent looking for effective ways to introduce your child to the world of financial management?",
+      text: classDetails.classDescription,
       textColor: AppColors.textColor,
       fontWeight: FontWeight.w400,
-      fontSize: Dimensions.font14,
+      fontSize: Dimensions.font12,
       color: Colors.grey.withOpacity(0.2),
     ),
   );
 }
 
 class ClassImageAndBackView extends StatelessWidget {
-  const ClassImageAndBackView({super.key});
+  final ClassDetails classDetail;
+  const ClassImageAndBackView({super.key, required this.classDetail});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +66,7 @@ class ClassImageAndBackView extends StatelessWidget {
               BackViewWithTitle(text: "BACK / Center / Class details"),
               SizedBox(height: Dimensions.height15,),
               ImageWithIndicator(
-                imgList: controller.imgList,
+                imgList: [controller.classDetails.classImage],
               ),
             /*  ImageWithIndicator(
                   imgList: controller.cateogryList){
@@ -74,7 +77,7 @@ class ClassImageAndBackView extends StatelessWidget {
                 child: BigText(
                   text: "Thank you for your interest!",
                   color: AppColors.textColor,
-                  size: Dimensions.font14,
+                  size: Dimensions.font12,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -85,10 +88,10 @@ class ClassImageAndBackView extends StatelessWidget {
               ),
               SizedBox(height: Dimensions.height20,),
               BigText(
-                text: "Center Name",
+                text: classDetail.className,
                 color: AppColors.blueColor,
                 fontWeight: FontWeight.w600,
-                size: Dimensions.font18,
+                size: Dimensions.font16,
               ),
               SizedBox(height: Dimensions.height10,),
               Text.rich(
@@ -98,16 +101,16 @@ class ClassImageAndBackView extends StatelessWidget {
                       text: 'Center - ',
                       style: TextStyle(
                         fontFamily: "Poppins",
-                        fontSize: Dimensions.font14, // Font size for the first part
+                        fontSize: Dimensions.font12, // Font size for the first part
                         fontWeight: FontWeight.w600, // You can apply other styles too
                         color: Colors.grey,
                       ),
                     ),
                     TextSpan(
-                      text: ' Global Art', // Second part of the text
+                      text: classDetail.centerName, // Second part of the text
                       style: TextStyle(
                         fontFamily: "Poppins",
-                        fontSize: Dimensions.font14, // Font size for the second part
+                        fontSize: Dimensions.font12, // Font size for the second part
                         fontWeight: FontWeight.w600, // You can apply other styles too
                         color: AppColors.blueColor,
                       ),

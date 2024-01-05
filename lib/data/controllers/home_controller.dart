@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:three_sixty_kids/data/models/responses/blog_response.dart';
+import 'package:three_sixty_kids/data/models/responses/center_response.dart';
+import 'package:three_sixty_kids/data/models/vos/center_item_model.dart';
 import 'package:three_sixty_kids/data/repositories/home_repo.dart';
 
 class HomeController extends GetxController{
@@ -7,13 +10,18 @@ class HomeController extends GetxController{
   HomeController({required this.homeRepo});
 
   List<String> _options = [];
-  List<String> _centerList = [];
+  List<CenterItem> _centerList = [];
+  List<Article> _articleList = [];
+  late CenterResponse _centerResponse;
   String _selectedOptions = "";
   bool _isLoading = false;
   String _postalCode = "";
 
   List<String> get options => _options;
-  List<String> get centerList => _centerList;
+  List<CenterItem> get centerList => _centerList;
+  List<Article> get articleList => _articleList;
+  CenterResponse get centerResponse => _centerResponse;
+
   bool get isLoading => _isLoading;
   String get selectedOptions => _selectedOptions;
   String get getPostalCode => _postalCode;
@@ -22,25 +30,22 @@ class HomeController extends GetxController{
   @override
   void onInit() {
     super.onInit();
-    fetchOptions();
+    //fetchOptions();
+    fetchDistances();
+    fetchBlogList();
   }
 
-
-
-  Future<void> fetchOptions() async {
-    // Simulate an API call
-    await Future.delayed(Duration(seconds: 2));
-
-    // Replace this with your actual API call to fetch options from the server
-    List<String> fetchedOptions = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
-
-    _options = fetchedOptions;
-
-    List<String> fetchedOptions1 = ['Center 1', 'Center 2', 'Center 3', 'Center 4','Center 5'];
-
-    _centerList = fetchedOptions1;
-
+  Future<void> fetchDistances() async {
+    _options = await homeRepo.apiClient.loadDistanceJson();
+    update();
     _selectedOptions = _options[0];
+    update();
+  }
+
+  Future<void> fetchBlogList() async {
+    BlogResponse blogResponse = await homeRepo.apiClient.getBlogList();
+    update();
+    _articleList = blogResponse.articles;
     update();
   }
 
@@ -55,13 +60,9 @@ class HomeController extends GetxController{
     update();
     _postalCode = postalCode;
 
-    // Simulate an API call
-    await Future.delayed(Duration(seconds: 2));
+    _centerResponse = await homeRepo.apiClient.getSearchCenterList();
+    _centerList = _centerResponse.centerList;
 
-    // Replace this with your actual API call to fetch options from the server
-    List<String> fetchedOptions = ['Center 1', 'Center 2', 'Center 3', 'Center 4','Center 5'];
-
-    _centerList = fetchedOptions;
     _isLoading = false;
     update();
   }

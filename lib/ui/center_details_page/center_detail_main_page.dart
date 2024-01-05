@@ -28,7 +28,7 @@ class _CenterDetailMainPageState extends State<CenterDetailMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    Get.find<CenterDetailController>().fetchOptions(widget.index);
+    Get.find<CenterDetailController>().getCenterDetail(widget.index);
     return SafeArea(
       child: GetBuilder<CenterDetailController>(
           builder: (controller) {
@@ -36,7 +36,7 @@ class _CenterDetailMainPageState extends State<CenterDetailMainPage> {
               backgroundColor: controller.isLoading ? AppColors.backgroundColor: Colors.white,
               body: controller.isLoading
                   ? const Center(child: CircularProgressIndicator(color: AppColors.mainColor,),)
-                  : const CenterDetailPage(),
+                  : CenterDetailPage(centerDetail: controller.centerDetail,),
 
             );
           }),

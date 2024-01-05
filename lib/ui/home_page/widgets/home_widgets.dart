@@ -20,7 +20,7 @@ Widget joinAsCenterHomeWidget() {
                   text: 'OR ',
                   style: TextStyle(
                     fontFamily: "Poppins",
-                    fontSize: Dimensions.font24, // Font size for the first part
+                    fontSize: Dimensions.font22, // Font size for the first part
                     fontWeight: FontWeight.bold, // You can apply other styles too
                     color: AppColors.textColor,
                   ),
@@ -29,7 +29,7 @@ Widget joinAsCenterHomeWidget() {
                   text: ' Join As A Center ->', // Second part of the text
                   style: TextStyle(
                     fontFamily: "Poppins",
-                    fontSize: Dimensions.font16, // Font size for the second part
+                    fontSize: Dimensions.font14, // Font size for the second part
                     fontWeight: FontWeight.w400, // You can apply other styles too
                     color: AppColors.blueColor,
                   ),
@@ -40,7 +40,7 @@ Widget joinAsCenterHomeWidget() {
         ]),
         SizedBox(height: Dimensions.height10,),
         Container(
-          height: Dimensions.height150,
+          height: Dimensions.height120,
           child: Image.asset(
             'assets/images/book.png',
             fit: BoxFit.fill,
@@ -67,7 +67,7 @@ Widget homeTitleWidget() {
                 text: 'Find ',
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: Dimensions.font24, // Font size for the first part
+                  fontSize: Dimensions.font22, // Font size for the first part
                   fontWeight: FontWeight.bold, // You can apply other styles too
                   color: AppColors.textColor,
                 ),
@@ -76,7 +76,7 @@ Widget homeTitleWidget() {
                 text: ' perfect enrichment', // Second part of the text
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: Dimensions.font16, // Font size for the second part
+                  fontSize: Dimensions.font14, // Font size for the second part
                   fontWeight: FontWeight.w400, // You can apply other styles too
                   color: AppColors.textColor,
                 ),
@@ -96,7 +96,7 @@ Widget homeTitleWidget() {
                   decoration: TextDecoration.underline,
                   decorationColor: AppColors.textColor,
                   fontFamily: "Poppins",
-                  fontSize: Dimensions.font16, // Font size for the first part
+                  fontSize: Dimensions.font14, // Font size for the first part
                   fontWeight: FontWeight.bold, // You can apply other styles too
                   color: AppColors.textColor,
                 ),
@@ -105,7 +105,7 @@ Widget homeTitleWidget() {
                 text: ' for your kids', // Second part of the text
                 style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: Dimensions.font16, // Font size for the second part
+                  fontSize: Dimensions.font14, // Font size for the second part
                   fontWeight: FontWeight.w400, // You can apply other styles too
                   color: AppColors.textColor,
                 ),
@@ -119,7 +119,7 @@ Widget homeTitleWidget() {
         SmallText(
           text: searchByPostal,
           color: Colors.grey,
-          size: Dimensions.font14,
+          size: Dimensions.font12,
           //fontWeight: FontWeight.w400,
         ),
         SizedBox(
